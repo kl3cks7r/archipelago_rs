@@ -91,8 +91,8 @@ pub struct NetworkSlot {
 pub fn network_version() -> NetworkVersion {
     NetworkVersion {
         major: 0,
-        minor: 3,
-        build: 7,
+        minor: 4,
+        build: 1,
         class: "Version".to_string(),
     }
 }
@@ -213,7 +213,7 @@ pub struct Connected {
     pub missing_locations: Vec<i32>,
     pub checked_locations: Vec<i32>,
     pub slot_data: Value,
-    pub slot_info: HashMap<String, NetworkSlot>, // TODO: docs claim this is an int key. they are lying?
+    pub slot_info: HashMap<i32, NetworkSlot>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
