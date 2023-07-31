@@ -8,6 +8,7 @@ use serde_repr::{Deserialize_repr, Serialize_repr};
 #[serde(tag = "cmd")]
 pub enum ClientMessage {
     Connect(Connect),
+    ConnectUpdate(ConnectUpdate),
     Sync,
     LocationChecks(LocationChecks),
     LocationScouts(LocationScouts),
@@ -213,7 +214,7 @@ pub struct Connected {
     pub missing_locations: Vec<i32>,
     pub checked_locations: Vec<i32>,
     pub slot_data: Value,
-    pub slot_info: HashMap<String, NetworkSlot>,
+    pub slot_info: HashMap<String, NetworkSlot>, // This is an integer formatted as a string
 }
 
 #[derive(Debug, Serialize, Deserialize)]
